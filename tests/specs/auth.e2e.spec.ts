@@ -21,3 +21,4 @@
 //         // await expect(vendorProfilePage.navigationMenu.courses.getLocator).toBeVisible();
 //     });
 // });
+
