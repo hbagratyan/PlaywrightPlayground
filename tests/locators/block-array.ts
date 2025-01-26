@@ -1,4 +1,4 @@
-import { expect, Locator, test } from 'playwright/test';
+import { expect, Locator, test } from '@playwright/test';
 import { BaseElement } from './base-element';
 
 export class BlockArray extends BaseElement {

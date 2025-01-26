@@ -1,4 +1,4 @@
-import { Locator, test } from 'playwright/test';
+import { Locator, test } from '@playwright/test';
 import { BaseElement } from './base-element';
 
 export class Button extends BaseElement {

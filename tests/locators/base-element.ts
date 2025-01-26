@@ -1,4 +1,4 @@
-import { Locator, test } from "playwright/test";
+import { Locator, test } from "@playwright/test";
 
 export class BaseElement {
     protected readonly locator: Locator;
