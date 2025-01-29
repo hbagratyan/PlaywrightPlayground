@@ -13,15 +13,15 @@ export class QwintryAuthPage extends BasePage {
     }
 
     get emailField(): Input {
-        return new Input(this.page.locator('[name="email"]'), 'Почта');
+        return new Input(this.page.locator('[id="email"]'), 'Почта');
     }
 
     get passwordField(): Input {
-        return new Input(this.page.locator('name="password"'), 'Пароль');
+        return new Input(this.page.locator('[id="password"]'), 'Пароль');
     }
 
     get signInButton(): Button {
-        return new Button(this.page.locator('[type="submit"]'), 'Авторизоваться');
+        return new Button(this.page.locator('[id="sign-in"]'), 'Войти');
     }
 
     async login(email: string, password: string): Promise<void> {
@@ -31,6 +31,6 @@ export class QwintryAuthPage extends BasePage {
     }
 
     async open(): Promise<void> {
-        await this.page.goto(this.baseURL);
+        await this.page.goto(this.baseURL, {waitUntil: "domcontentloaded"});
     }
 }

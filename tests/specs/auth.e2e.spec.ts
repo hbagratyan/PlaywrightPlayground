@@ -1,24 +1,18 @@
-// import { test } from '../../../fixtures/auth/auth.fixtures';
-// import { ROLES } from '../../../utils/api/auth/roles';
-// import { expect } from '@playwright/test';
-// import { allure } from 'allure-playwright';
-//
-// let user: {
-//     email: string;
-//     password: string;
-// };
-//
-// test.describe('Авторизация', () => {
-//     test.afterEach(async ({ mainPage }) => {
-//         await mainPage.page.context().clearCookies();
-//     });
-//
-//     test('Авторизация', async ({qw }) => {
-//
-//         // await vendorAuthPage.open();
-//         // await authApiHelper.register(email, password, ROLES.VENDOR);
-//         // await vendorAuthPage.login(email, password);
-//         // await expect(vendorProfilePage.navigationMenu.courses.getLocator).toBeVisible();
-//     });
-// });
+import {test} from '../fixtures/auth/auth.fixtures';
+import {expect} from '@playwright/test';
+
+let email = "vasya"
+let password = "pupkin"
+
+test.describe('Авторизация', () => {
+    test.afterEach(async ({qwintryAuthPage}) => {
+        await qwintryAuthPage.page.context().clearCookies();
+    });
+
+    test.only('Ввод корректных логина и пароля пользователя', async ({qwintryAuthPage}) => {
+        await qwintryAuthPage.open();
+        await qwintryAuthPage.login(email, password);
+        await expect(qwintryAuthPage.signInButton.getLocator).toBeHidden();
+    });
+});
 
