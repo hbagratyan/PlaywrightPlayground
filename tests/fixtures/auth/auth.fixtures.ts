@@ -1,9 +1,9 @@
 import { test as base } from '@playwright/test';
-import { QwintryAuthPage } from '../../page-objects/qwintry/auth/qwintry.auth.page';
-import {AuthInit} from "../../page-objects/qwintry/auth/auth.init";
+import { LumaAuthPage } from '../../page-objects/luma/auth/lumaAuthPage';
+import {AuthInit} from "../../page-objects/luma/auth/auth.init";
 
 interface AuthFixtures {
-    qwintryAuthPage: QwintryAuthPage;
+    lumaAuthPage: LumaAuthPage;
     authInit: AuthInit
 }
 
@@ -17,7 +17,7 @@ export const test = base.extend<AuthFixtures>({
         { auto: true },
     ],
 
-    qwintryAuthPage: async ({ authInit, baseURL }, use) => {
-        await use(new QwintryAuthPage(authInit.page, baseURL || 'https://www.epicgames.com/id/login'));
+    lumaAuthPage: async ({ authInit, baseURL }, use) => {
+        await use(new LumaAuthPage(authInit.page, baseURL || 'https://magento.softwaretestingboard.com/customer/account/login'));
     }
 });

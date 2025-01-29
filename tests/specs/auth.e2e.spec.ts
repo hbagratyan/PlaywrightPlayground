@@ -1,18 +1,18 @@
 import {test} from '../fixtures/auth/auth.fixtures';
 import {expect} from '@playwright/test';
 
-let email = "vasya"
-let password = "pupkin"
+let email = "vasya.pupkin@mail.ru"
+let password = "Qwerty123-"
 
 test.describe('Авторизация', () => {
-    test.afterEach(async ({qwintryAuthPage}) => {
-        await qwintryAuthPage.page.context().clearCookies();
+    test.afterEach(async ({lumaAuthPage}) => {
+        await lumaAuthPage.page.context().clearCookies();
     });
 
-    test.only('Ввод корректных логина и пароля пользователя', async ({qwintryAuthPage}) => {
-        await qwintryAuthPage.open();
-        await qwintryAuthPage.login(email, password);
-        await expect(qwintryAuthPage.signInButton.getLocator).toBeHidden();
+    test('Ввод корректных логина и пароля пользователя', async ({lumaAuthPage}) => {
+        await lumaAuthPage.open();
+        await lumaAuthPage.login(email, password);
+        await expect(lumaAuthPage.signInButton.getLocator).toBeHidden();
     });
 });
 

@@ -4,7 +4,7 @@ import { Page } from '@playwright/test';
 import { Block } from '../../../locators/block';
 import { BasePage } from '../base-page';
 
-export class QwintryAuthPage extends BasePage {
+export class LumaAuthPage extends BasePage {
     baseURL: string;
 
     constructor(page: Page, baseURL: string) {
@@ -17,11 +17,11 @@ export class QwintryAuthPage extends BasePage {
     }
 
     get passwordField(): Input {
-        return new Input(this.page.locator('[id="password"]'), 'Пароль');
+        return new Input(this.page.locator('[id="pass"]'), 'Пароль');
     }
 
     get signInButton(): Button {
-        return new Button(this.page.locator('[id="sign-in"]'), 'Войти');
+        return new Button(this.page.locator('[type="submit"]', {hasText: "Sign In"}), 'Войти');
     }
 
     async login(email: string, password: string): Promise<void> {
