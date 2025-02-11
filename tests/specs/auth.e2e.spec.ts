@@ -14,5 +14,6 @@ test.describe('Авторизация', () => {
         await lumaAuthPage.login(email, password);
         await expect(lumaAuthPage.signInButton.getLocator).toBeHidden();
     });
+    
 });
 
